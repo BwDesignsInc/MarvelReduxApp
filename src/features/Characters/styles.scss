@@ -1,0 +1,10 @@
+.characters{
+    min-width: 16rem;
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-card{
+        padding:1rem;
+    }
+}
