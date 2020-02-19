@@ -5,9 +5,11 @@ import {
 } from "./types";
 
 const initialState = {
-    thumbnail: {
-      path: null,
-      extension: null
+    character:{
+        thumbnail: {
+            path: null,
+            extension: null
+          },
     },
     loading: true
 };

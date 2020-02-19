@@ -44,6 +44,8 @@ export const CharacterDetails = () => {
         <DetailSegment label="Stories" detail={character.stories}/>  
         <DetailSegment label="Stories" detail={character.events}/>
       </div>
+      <div className="chracter-urls">
+       </div>
     </div>
     }
     </>
