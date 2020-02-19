@@ -2,17 +2,11 @@ import React, { useEffect } from "react";
 import { isEmpty } from "lodash";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 import { fetchCharacterDetails } from "./actions";
 import { getCharacter, getCharacterLoading } from "./selectors";
 import { Button } from "semantic-ui-react";
 import "./styles.scss";
-
-const DetailSegment = ({label, detail:{available}}) => (
-<div>
-  <label>Comics:</label>
-  {available}
-</div>)
+import DetailSegment from './components/DetailSegment';
 
 export const CharacterDetails = () => {
   const loading = useSelector(getCharacterLoading);
