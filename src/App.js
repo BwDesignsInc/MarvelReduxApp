@@ -6,8 +6,9 @@ import SignupForm from "./features/Form/Form";
 import { Title } from "./theme";
 import { Tab } from "semantic-ui-react";
 import { getCharactersLoading } from "./features/Characters/selectors";
+import { getCharacterLoading } from "./features/Characters/CharacterDetails/selectors";
 import { useSelector } from "react-redux";
-const tabPanelsRoutes = loading => [
+const tabPanelsRoutes = (charactersLoading, detailsLoading) => [
   {
     menuItem: {
       as: Link,
@@ -34,10 +35,12 @@ const tabPanelsRoutes = loading => [
     render: () => (
       <>
        <Route path="/characters/:name">
-          <CharacterDetails />
+          <Tab.Pane loading={detailsLoading}>
+            <CharacterDetails />
+          </Tab.Pane>
         </Route>
         <Route exact path="/characters">
-          <Tab.Pane loading={loading}>
+          <Tab.Pane loading={charactersLoading}>
             <Characters />
           </Tab.Pane>
         </Route>
@@ -70,11 +73,12 @@ const defaultActiveIndex = tabPanelsRoutes().findIndex(pane => {
 });
 
 const App = () => {
-  const loading = useSelector(getCharactersLoading); 
+  const charactersLoading = useSelector(getCharactersLoading); 
+  const detailsLoading = useSelector(getCharacterLoading);
   return (
     <div data-testid="marvelApp">
       <Title>Marvel Characters</Title>
-      <Tab defaultActiveIndex={defaultActiveIndex} panes={tabPanelsRoutes(loading)} />
+      <Tab defaultActiveIndex={defaultActiveIndex} panes={tabPanelsRoutes(charactersLoading, detailsLoading)} />
     </div>
   );
 };

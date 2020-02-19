@@ -8,23 +8,26 @@ import { getCharacter, getCharacterLoading } from "./selectors";
 import { Button } from "semantic-ui-react";
 import "./styles.scss";
 
+const DetailSegment = ({label, detail:{available}}) => (
+<div>
+  <label>Comics:</label>
+  {available}
+</div>)
+
 export const CharacterDetails = () => {
   const loading = useSelector(getCharacterLoading);
   const character = useSelector(getCharacter);
   const dispatch = useDispatch();
   const { name } = useParams();
   const history = useHistory();
-
+ 
   useEffect(() => {
     dispatch(fetchCharacterDetails(name));
   }, [dispatch, name]);
 
- 
   return (
     <>
-      { loading ? <Dimmer active={loading} inverted>
-        <Loader inverted>Loading</Loader>
-      </Dimmer>: 
+      { !loading && 
     <div className="character-profile">
       <Button
         className="profile-button"
@@ -36,25 +39,11 @@ export const CharacterDetails = () => {
       <h3>{name}</h3>
       <img alt={name} src={`${character.thumbnail.path}/landscape_incredible.${character.thumbnail.extension}`} />
       <div className="character-info">
-        <div>
-          <label>Comics:</label>
-          {character.comics.available}
-        </div>
-        <div>
-          <label>Series:</label>
-          {character.series.available}
-        </div>
-        <div>
-          <label>Stories:</label>
-          {character.stories.available}
-        </div>
-        <div>
-          <label>Events:</label>
-          {character.events.available}
-        </div>
+        <DetailSegment label="Comics" detail={character.comics}/>
+        <DetailSegment label="Stories" detail={character.series}/>
+        <DetailSegment label="Stories" detail={character.stories}/>  
+        <DetailSegment label="Stories" detail={character.events}/>
       </div>
-      <div className="chracter-urls">
-       </div>
     </div>
     }
     </>
