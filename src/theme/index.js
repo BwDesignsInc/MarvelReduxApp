@@ -18,10 +18,11 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 300px;
+  width: 100px;
   height: 35px;
   background-color: #5995ef;
   color: #fff;
+  border:none;
   border-radius: 3px;
 `;
 
@@ -55,3 +56,8 @@ export const Label = styled.label`
   margin: 0.5em 0;
   position: relative;
 `;
+
+export const Error = styled.div`
+font-family: 'Raleway', sans-serif;
+display: ${props => props.meta.error && props.meta.touched ? 'block' : 'none'}
+  `;

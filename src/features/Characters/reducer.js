@@ -9,7 +9,7 @@ const initialState = {
     loading: true,
 };
 
-export const characterReducer = (state = initialState, action) => {
+export const charactersReducer = (state = initialState, action) => {
     const {type, payload} = action
     switch (type) {
       case CHARACTERS_REQUEST:
@@ -27,4 +27,4 @@ export const characterReducer = (state = initialState, action) => {
     }
   }
 
-  export default characterReducer;
+  export default charactersReducer;

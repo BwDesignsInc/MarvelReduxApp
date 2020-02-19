@@ -10,6 +10,7 @@ export const charactersApi = () => http.get("/characters?apikey=680e11e6ae10cd6d
 export const charactersByNameApi = (name) => http.get(makeCharacterUrl(name))
 
 const charactersRequest = () => ({ type: CHARACTERS_REQUEST });
+
 const charactersSuccess = response => ({
   type: CHARACTERS_SUCCESS,
   payload: response

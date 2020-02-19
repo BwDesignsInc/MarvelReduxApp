@@ -1,0 +1,20 @@
+.character-profile {
+  margin: 1rem 1rem;
+  button {
+    &.profile-button {
+      background-color: #eeeeee;
+    }
+  }
+  .character-info{
+      display:flex;
+      div{
+        margin-right: 1rem;
+        font-size: large;
+        font-weight: 700;
+          label{
+            font-weight: normal;
+              margin-right:0.5rem;
+          }
+        }
+  }
+}
