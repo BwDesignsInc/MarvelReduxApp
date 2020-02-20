@@ -49,6 +49,7 @@ const Characters = () => {
                     src={`${path}/portrait_xlarge.${extension}`}
                   />
                 </Link>
+                <div className="character-name">{name}</div>
               </div>
             );
           })}
