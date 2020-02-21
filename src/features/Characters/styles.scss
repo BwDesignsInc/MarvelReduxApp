@@ -1,14 +1,39 @@
-.characters{
-    min-width: 16rem;
-    &-list{
-        display: flex;
-        flex-wrap: wrap;
+.characters {
+  min-width: 16rem;
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-card {
+    display: flex;
+    position: relative;
+    margin: 1rem;
+    align-items: center;
+    border: 3px solid #ffffff;
+    .character-name {
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      width: 150px;
+      height: 50px;
+      background-color: #ec1d24;
+      position: absolute;
+      color: white;
+      display: flex;
+      align-items: center;
+      visibility: hidden;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
     }
-    &-card{
-        padding:1rem;
+    &:hover {
+      border: 3px solid #ec1d24;
+      .character-name {
+        visibility: visible;
+        opacity: 0.9;
+      }
+      a {
+        opacity: 0.5;
+      }
     }
-
-    .ui.button {
-        background-color: blue;
-    }
+  }
 }
