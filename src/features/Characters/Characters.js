@@ -49,6 +49,7 @@ const Characters = () => {
                     <span>{name}</span>
                   </div>
                 </Link>
+                <div className="character-name"><span>{name}</span></div>
               </div>
             );
           })}
