@@ -31,8 +31,9 @@ const Characters = () => {
             } = charactersList[key];
 
             return (
-              <div className="characters-card" key={id}>
+              <div key={id}>
                 <Link
+                 className="characters-card"
                   to={{
                     pathname: `${url}/${name}`,
                     state: {
@@ -43,10 +44,10 @@ const Characters = () => {
                     }
                   }}
                 >
-                  <img
-                    alt={name}
-                    src={`${path}/portrait_xlarge.${extension}`}
-                  />
+                  <img alt={name} src={`${path}/portrait_xlarge.${extension}`} />
+                  <div className="character-name">
+                    <span>{name}</span>
+                  </div>
                 </Link>
                 <div className="character-name"><span>{name}</span></div>
               </div>
