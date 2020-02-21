@@ -1,7 +1,5 @@
 import { mapKeys } from "lodash";
-import CryptoJS from "crypto-js";
 import http, { config } from "../../api";
-import moment from "moment";
 import { CHARACTERS_REQUEST, CHARACTERS_SUCCESS, CHARACTERS_FAILURE } from "./types";
 const apiKey = "680e11e6ae10cd6d8b0dbedc8514a138";
 
