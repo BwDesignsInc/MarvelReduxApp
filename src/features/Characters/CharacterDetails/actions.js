@@ -18,14 +18,13 @@ export const characterDetailsFailure = error => ({
 
 export const fetchCharacterDetails = name => async (dispatch, getState) => {
   dispatch(characterDetailsRequest());
-
   try {
     const {
       data: {
         data: { results },
         attributionHTML
       }
-    } = await marvelCharacterAPI.getCharacters(name);
+    } = await marvelCharacterAPI.getCharacters({name});
     dispatch(
       characterDetailsSuccess({
         character: results[0],

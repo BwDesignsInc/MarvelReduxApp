@@ -2,20 +2,15 @@ import { mapKeys } from "lodash";
 import http, { config } from "../../api";
 import { CHARACTERS_REQUEST, CHARACTERS_SUCCESS, CHARACTERS_FAILURE } from "./types";
 const apiKey = "680e11e6ae10cd6d8b0dbedc8514a138";
-
 const makeCharacterUrl = ({ name }) => `/characters?name=${name}&apikey=${apiKey}`;
 const URI = "/v1/public/characters";
-export const charactersApi = () =>
-  http.get("/characters?apikey=680e11e6ae10cd6d8b0dbedc8514a138&limit=100");
-export const charactersByNameApi = name => http.get(makeCharacterUrl(name));
+
 export class marvelCharacterAPI {
   static getCharacters(httpOptions = {}) {
     const defaultOptions = { page: 1, count: 20, name: "", nameStartsWith: "" };
     const options = { ...defaultOptions, ...httpOptions };
     const currentOffset = options.page === 1 ? 0 : options.count * (options.page - 1);
-
     let params = `?apikey=${config.publicKey}&limit=${options.count}&offset=${currentOffset}`;
-
     if (options.name) {
       params = params.concat(`&name=${options.name}`);
     }
@@ -23,7 +18,6 @@ export class marvelCharacterAPI {
       params = params.concat(`&nameStartsWith=${options.nameStartsWith}`);
     }
     const url = `${config.baseUrl}${URI}${params}`;
-
     return http.get(url);
   }
 
@@ -31,7 +25,6 @@ export class marvelCharacterAPI {
     const URI = `/v1/public/characters/${characterId}/comics`;
     const params = `?apikey=${config.publicKey}&limit=20&offset=${offset}`;
     const url = `${config.baseUrl}${URI}${params}`;
-
     return http.get(url);
   }
 }
@@ -56,7 +49,6 @@ export const initCharacters = () => async dispatch => {
         attributionHTML
       }
     } = await marvelCharacterAPI.getCharacters();
-
     let normalizedCharacters = mapKeys(results, "id");
     dispatch(
       charactersSuccess({
