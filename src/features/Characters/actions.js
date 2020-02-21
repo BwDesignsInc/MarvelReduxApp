@@ -1,20 +1,12 @@
 import { mapKeys } from "lodash";
-import CryptoJS from 'crypto-js';
 import http, { config } from "../../api";
-import moment from "moment";
 import {
   CHARACTERS_REQUEST,
   CHARACTERS_SUCCESS,
   CHARACTERS_FAILURE
 } from "./types";
-const apiKey = "680e11e6ae10cd6d8b0dbedc8514a138";
 
-const makeCharacterUrl = ({ name }) =>
-  `/characters?name=${name}&apikey=${apiKey}`;
 const URI = "/v1/public/characters";
-export const charactersApi = () =>
-  http.get("/characters?apikey=680e11e6ae10cd6d8b0dbedc8514a138&limit=100");
-export const charactersByNameApi = name => http.get(makeCharacterUrl(name));
 export class marvelCharacterAPI {
   static getCharacters(httpOptions = {}) {
     const defaultOptions = { page: 1, count: 20, name: "", nameStartsWith: "" };
