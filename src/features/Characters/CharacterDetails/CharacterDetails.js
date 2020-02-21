@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCharacterDetails } from "./actions";
 import { getCharacter, getCharacterLoading } from "./selectors";
 import { Button } from "semantic-ui-react";
+import DetailsCount from './components/DetailsCount'
 import "./styles.scss";
-import DetailSegment from './components/DetailSegment';
 
 export const CharacterDetails = () => {
   const loading = useSelector(getCharacterLoading);
@@ -32,10 +32,10 @@ export const CharacterDetails = () => {
       <h3>{name}</h3>
       <img alt={name} src={`${character.thumbnail.path}/landscape_incredible.${character.thumbnail.extension}`} />
       <div className="character-info">
-        <DetailSegment label="Comics" detail={character.comics}/>
-        <DetailSegment label="Stories" detail={character.series}/>
-        <DetailSegment label="Stories" detail={character.stories}/>  
-        <DetailSegment label="Stories" detail={character.events}/>
+        <DetailsCount label="Comics" detail={character.comics}/>
+        <DetailsCount label="Series" detail={character.series}/>
+        <DetailsCount label="Stories" detail={character.stories}/>  
+        <DetailsCount label="Events" detail={character.events}/>
       </div>
       <div className="chracter-urls">
        </div>

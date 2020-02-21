@@ -3,7 +3,6 @@ import { Route, matchPath, Link } from "react-router-dom";
 import Characters from "./features/Characters";
 import CharacterDetails from "./features/Characters/CharacterDetails";
 import SignupForm from "./features/Form/Form";
-import { Title } from "./theme";
 import { Tab } from "semantic-ui-react";
 import { getCharactersLoading } from "./features/Characters/selectors";
 import { getCharacterLoading } from "./features/Characters/CharacterDetails/selectors";
