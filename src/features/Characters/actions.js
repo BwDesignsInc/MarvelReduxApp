@@ -15,7 +15,6 @@ export class marvelCharacterAPI {
       options.page === 1 ? 0 : options.count * (options.page - 1);
 
     let params = `?apikey=${config.publicKey}&limit=${options.count}&offset=${currentOffset}`;
-
     if (options.name) {
       params = params.concat(`&name=${options.name}`);
     }
@@ -23,15 +22,14 @@ export class marvelCharacterAPI {
       params = params.concat(`&nameStartsWith=${options.nameStartsWith}`);
     }
     const url = `${config.baseUrl}${URI}${params}`;
-
     return http.get(url);
   }
+
 
   static getComicsByCharacter(characterId, offset = 0) {
     const URI = `/v1/public/characters/${characterId}/comics`;
     const params = `?apikey=${config.publicKey}&limit=20&offset=${offset}`;
     const url = `${config.baseUrl}${URI}${params}`;
-
     return http.get(url);
   }
 }
@@ -56,7 +54,6 @@ export const initCharacters = () => async dispatch => {
         attributionHTML
       }
     } = await marvelCharacterAPI.getCharacters();
-    
     let normalizedCharacters = mapKeys(results, "id");
     dispatch(
       charactersSuccess({
