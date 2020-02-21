@@ -1,14 +1,40 @@
-.characters{
-    min-width: 16rem;
-    &-list{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    &-card{
-        padding:1rem;
-    }
+.characters {
+  min-width: 16rem;
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-card {
+    display: flex;
+    position: relative;
+    margin: 1rem;
+    align-items: center;
+    .character-name {
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
 
-    .ui.button {
-        background-color: blue;
+      width: 150px;
+      height: 50px;
+      background-color: #ec1d24;
+      position: absolute;
+      color: white;
+      display: flex;
+      align-items: center;
+      visibility: hidden;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
     }
+    border: 3px solid #ffffff;
+    &:hover {
+      border: 3px solid #ec1d24;
+      .character-name {
+        visibility: visible;
+        opacity: 0.9;
+      }
+      a {
+        opacity: 0.5;
+      }
+    }
+  }
 }
