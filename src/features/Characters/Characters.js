@@ -19,8 +19,8 @@ const Characters = () => {
   }, [dispatch, charactersList]);
 
   return (
-    <div className="characters">
-      <div className="characters-list">
+    <div className="characters" data-testid="characters">
+      <div className="characters-list" data-testid="characters-list">
         {charactersList &&
           Object.keys(charactersList).map(key => {
             const {
@@ -31,9 +31,9 @@ const Characters = () => {
             } = charactersList[key];
 
             return (
-              <div key={id}>
+              <div key={id} data-testid="character-card">
                 <Link
-                 className="characters-card"
+                  className="characters-card"
                   to={{
                     pathname: `${url}/${name}`,
                     state: {
@@ -44,7 +44,10 @@ const Characters = () => {
                     }
                   }}
                 >
-                  <img alt={name} src={`${path}/portrait_xlarge.${extension}`} />
+                  <img
+                    alt={name}
+                    src={`${path}/portrait_xlarge.${extension}`}
+                  />
                   <div className="character-name">
                     <span>{name}</span>
                   </div>
