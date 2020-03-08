@@ -27,7 +27,7 @@ export class marvelCharacterAPI {
 
   static getComicsByCharacter(characterId, offset = 0) {
     const URI = `/v1/public/characters/${characterId}/comics`;
-    const params = `?apikey=${config.publicKey}&limit=20&offset=${offset}`;
+    const params = `?apikey=${config.publicKey}&limit=40&offset=${offset}`;
     const url = `${config.baseUrl}${URI}${params}`;
     return http.get(url);
   }
